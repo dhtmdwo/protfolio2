@@ -85,7 +85,7 @@ DB
 
 ## 📡 소프트웨어 아키텍처
 
-[소프트웨어 아키텍처](https://github.com/beyond-sw-camp/be06-2nd-FIIIIIVE-ZIP_POP/wiki/6.-%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
+[소프트웨어 아키텍처](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/SW-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
 <br>
 
 ## 배포 주소
