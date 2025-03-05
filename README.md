@@ -79,7 +79,7 @@ DB
 
 ## 🛠 시스템 아키텍처
 
-[시스템 아키텍처]()
+[시스템 아키텍처](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
 <br>
 <br>
 
