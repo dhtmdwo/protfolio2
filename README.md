@@ -73,7 +73,7 @@ DB
 
 ## 🔗 코딩 컨벤션
 
-[코딩 컨벤션](https://github.com/beyond-sw-camp/be06-2nd-FIIIIIVE-ZIP_POP/wiki/4.-%EC%BD%94%EB%94%A9-%EC%BB%A8%EB%B2%A4%EC%85%98)
+[코딩 컨벤션](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%BD%94%EB%93%9C-%EC%BB%A8%EB%B2%A4%EC%85%98)
 <br>
 <br>
 
