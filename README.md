@@ -71,6 +71,12 @@ DB
 <br>
 <br>
 
+## ⚙ 성능 개선
+
+[성능 개선](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
+<br>
+<br>
+
 ## 🔗 코딩 컨벤션
 
 [코딩 컨벤션](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%BD%94%EB%93%9C-%EC%BB%A8%EB%B2%A4%EC%85%98)
