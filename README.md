@@ -56,18 +56,18 @@ DB
 
 ## 📃 API 명세서
 
-[API 명세서](<https://github.com/beyond-sw-camp/be06-2nd-FIIIIIVE-ZIP_POP/wiki/1.-API-%EB%AA%85%EC%84%B8%EC%84%9C(Swagger%E2%80%90ui)>)
+[API 명세서]()
 <br>
 
 ## 🔎 핵심 기능
 
-[핵심 기능](https://github.com/beyond-sw-camp/be06-2nd-FIIIIIVE-ZIP_POP/wiki/2.-%ED%95%B5%EC%8B%AC-%EA%B8%B0%EB%8A%A5)
+[핵심 기능]()
 <br>
 <br>
 
 ## ⚙ 기능 테스트
 
-[기능 테스트](https://github.com/beyond-sw-camp/be06-2nd-FIIIIIVE-ZIP_POP/wiki/3.-%EA%B8%B0%EB%8A%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8)
+[기능 테스트]()
 <br>
 <br>
 
@@ -79,7 +79,7 @@ DB
 
 ## 🛠 시스템 아키텍처
 
-[시스템 아키텍처](https://github.com/beyond-sw-camp/be06-2nd-FIIIIIVE-ZIP_POP/wiki/5.-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
+[시스템 아키텍처]()
 <br>
 <br>
 
