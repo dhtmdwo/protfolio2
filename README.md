@@ -56,7 +56,7 @@ DB
 
 ## 📃 API 명세서
 
-[API 명세서]()
+[API 명세서](http://www.eatzzy-back.kro.kr:8082/swagger-ui/index.html)
 <br>
 
 ## 🔎 핵심 기능
