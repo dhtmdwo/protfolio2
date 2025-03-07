@@ -44,9 +44,10 @@ DB
 <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white"/></a></a>
 
 백엔드
-
-<img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=black"/></a></a> <img src="https://img.shields.io/badge/SpringSecurity-6DB33F?style=flat-square&logo=SpringSecurity&logoColor=white"/></a></a>
-<img src="https://camo.githubusercontent.com/1882bfea094d34d0fecd347e7ff33ec2f7152d3d765a1892b2ce962092dfeeb2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f537072696e67253230646174612532306a70612d3644423333463f7374796c653d666f722d7468652d6261646765266c6f676f3d537072696e67253230426f6f74266c6f676f436f6c6f723d7768697465" /></a>
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=Spring%20Boot&logoColor=white)
+![Spring data jpa](https://img.shields.io/badge/Spring%20data%20jpa-6DB33F?style=for-the-badge&logo=Spring%20Boot&logoColor=white)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=Spring%20Security&logoColor=white)
 <br>
 <br>
 
