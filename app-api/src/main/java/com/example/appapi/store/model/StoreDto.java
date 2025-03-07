@@ -216,7 +216,7 @@ public class StoreDto {
         @Schema(description = "식당 고유 번호", example = "1")
         private Long idx;
         @Schema(description = "식당 리뷰 별점", example = "4.8")
-        private double starPoint;
+        private int starPoint;
         @Schema(description = "식당 이름", example = "모스키친")
         private String name;
         @Schema(description = "식당 설명", example = "신선한 재료와 정성을 담아 맛있는 한 끼를 제공하는 맛집입니다.")
@@ -234,7 +234,7 @@ public class StoreDto {
         @Schema(description = "식당 주소", example = "서울시 동작구 보라매로 87")
         private String address;
 
-        public static MyStoreResponseDto from(Store store, double starPointAvg) {
+        public static MyStoreResponseDto from(Store store, int starPointAvg) {
             String storeImageUrl = store.getImages().get(0).getImagePath();
 
             return MyStoreResponseDto.builder()
