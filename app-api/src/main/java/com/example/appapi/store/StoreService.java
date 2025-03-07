@@ -98,8 +98,8 @@ public class StoreService {
         }
         List<StoreDto.MyStoreResponseDto> response = new ArrayList<>();
         for (Store store : stores) {
-            double starPointAvg = storeRepository.findAvgStarPointByStoreIdx(store.getIdx());
-            response.add(StoreDto.MyStoreResponseDto.from(store, starPointAvg));
+            Double starPointAvg = storeRepository.findAvgStarPointByStoreIdx(store.getIdx());
+            response.add(StoreDto.MyStoreResponseDto.from(store, (int) Math.round(starPointAvg)));
         }
         return response;
     }

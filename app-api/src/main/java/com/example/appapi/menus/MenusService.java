@@ -8,6 +8,7 @@ import com.example.appapi.store.model.Store;
 import com.example.appapi.users.model.Users;
 import com.example.common.BaseResponseStatus;
 import com.example.common.exception.BaseException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public class MenusService {
     private final MenusRepository menusRepository;
     private final StoreRepository storeRepository;
+    @Transactional
     public MenusDto.MenusResponseDto create(Users user, MenusDto.CreateMenuRequestDto dto) {
         Store store = storeRepository.findByIdAndUserId(dto.getStoreIdx(), user.getIdx()).orElseThrow(); //-> new BaseException(BaseResponseStatus.MENU_REGIST_FAILED));
 
