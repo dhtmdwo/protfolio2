@@ -149,7 +149,7 @@ public class StoreDto {
                     .starPoint(store.getStarPoint())
                     .reviewCnt(store.getReviewCnt())
                     .closedDayList(store.getClosedDayList() == null ? null
-                            : store.getClosedDayList().stream().map(ClosedDayResponseDto::from).collect(Collectors.toList()))
+                            : store.getClosedDayList().stream().map(StoreDto.ClosedDayResponseDto::from).collect(Collectors.toList()))
                     .imagePaths(
                             store.getImages() == null ? List.of() : store.getImages().stream()
                                     .map(image -> image.getImagePath()).toList()
