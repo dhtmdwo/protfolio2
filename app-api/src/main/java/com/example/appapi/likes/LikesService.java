@@ -41,7 +41,15 @@ public class LikesService {
         Optional<Likes> likes = likesRepository.findLikesByUserIdANDStoreId(userIdx,storeIdx);
 
         likes.ifPresentOrElse(
-                likesRepository::delete,
+                like -> {
+                    // ✅ 좋아요 삭제
+                    likesRepository.delete(like);
+
+                    // ✅ 가게 정보 가져와서 likesCount 감소
+                    Store store = like.getStore();
+                    store.subLike();
+                    storeRepository.save(store); // 변경사항 저장
+                },
                 () -> {
                     Users user = usersRepository.findById(userIdx)
                             .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
@@ -50,13 +58,18 @@ public class LikesService {
 
                     Likes newLike = LikesDto.LikeRegister.toEntity(user, store);
                     likesRepository.save(newLike);
+
+                    // ✅ 좋아요 추가 시 likesCount 증가
+                    store.addLike();
+                    storeRepository.save(store); // 변경사항 저장
                 }
         );
 
     } // 마이페이지 클라이언트 식당 좋아요 삭제
 
     public Long countLikes(Long storeIdx) {
-        Long count = likesRepository.countLikesByStoreId(storeIdx);
+        //Long count = likesRepository.countLikesByStoreId(storeIdx);
+        Long count = storeRepository.findById(storeIdx).get().getLikesCount();
         return count;
     }
 

@@ -58,8 +58,8 @@ public class LikesDto {
         private Long likeCount;
 
         public static StoreAllLikesResponse from(Store store) {
-            Long likeCount = (long)store.getLikesList().size();
-
+            //Long likeCount = (long)store.getLikesList().size();
+            Long likeCount = store.getLikesCount();
             return LikesDto.StoreAllLikesResponse.builder()
                     .storeIdx(store.getIdx())
                     .storeName(store.getName())

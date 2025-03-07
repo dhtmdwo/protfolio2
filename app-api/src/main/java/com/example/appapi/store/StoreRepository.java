@@ -42,8 +42,7 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
             "AND s.user.idx = :userIdx")
     Optional<Store> findByIdAndUserId(@Param("storeIdx") Long storeIdx, @Param("userIdx") Long userIdx);
 
-    List<Store> findAll();
-
+//    List<Store> findAll();
     @Query("SELECT AVG(sr.starPoint) " +
             "FROM StoreReview sr " +
             "WHERE sr.store.idx = :storeIdx")
