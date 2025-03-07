@@ -19,14 +19,23 @@ public class StoreDto {
     // store 생성 request
     @Getter
     public static class CreateStoreRequestDto {
+        @Schema(description = "식당 이름", example = "모스키친")
         private String name;
+        @Schema(description = "식당 설명", example = "신선한 재료와 정성을 담아 맛있는 한 끼를 제공하는 맛집입니다.")
         private String description;
+        @Schema(description = "식당 전화번호", example = "02-111-2222")
         private String callNumber;
+        @Schema(description = "예약 시작 시간", example = "17:00")
         private LocalTime startTime;
+        @Schema(description = "예약 종료 시간", example = "21:00")
         private LocalTime endTime;
+        @Schema(description = "식당 운영 시간", example = "10:00~22:00")
         private String openingHours;
+        @Schema(description = "식당 주소", example = "서울시 동작구 보라매로 87")
         private String address;
+        @Schema(description = "식당 간략 주소", example = "서울 동작구")
         private String shortAddress;
+        @Schema(description = "카테고리 번호", example = "12")
         private Long categoryIdx;
 
         List<ClosedDayRequestDto> closedDayList = new ArrayList<>();
@@ -53,6 +62,7 @@ public class StoreDto {
     // 휴무일 request
     @Getter
     public static class ClosedDayRequestDto {
+        @Schema(description = "휴무일", example = "MON")
         private String day;
 
         public StoreClosedDay toEntity(Store store) {
@@ -69,7 +79,9 @@ public class StoreDto {
     @AllArgsConstructor
     @Builder
     public static class ClosedDayResponseDto {
+        @Schema(description = "식당 휴무일 고유번호", example = "1")
         private Long idx;
+        @Schema(description = "식당 휴무일", example = "MON")
         private String day;
 
         public static ClosedDayResponseDto from(StoreClosedDay storeClosedDay) {
@@ -85,20 +97,33 @@ public class StoreDto {
     @AllArgsConstructor
     @Builder
     public static class StoreResponseDto {
+        @Schema(description = "식당 고유 번호", example = "1")
         private Long idx;
+        @Schema(description = "식당 이름", example = "모스키친")
         private String name;
+        @Schema(description = "식당 설명", example = "신선한 재료와 정성을 담아 맛있는 한 끼를 제공하는 맛집입니다.")
         private String description;
+        @Schema(description = "식당 전화번호", example = "02-111-2222")
         private String callNumber;
+        @Schema(description = "예약 시작 시간", example = "17:00")
         private LocalTime startTime;
+        @Schema(description = "예약 종료 고유번호", example = "21:00")
         private LocalTime endTime;
+        @Schema(description = "식당 운영 시간", example = "10:00~22:00")
         private String openingHours;
+        @Schema(description = "식당 주소", example = "서울시 동작구 보라매로 87")
         private String address;
+        @Schema(description = "식당 간략 주소", example = "서울 동작구")
         private String shortAddress;
+        @Schema(description = "식당 등록 상태", example = "YES")
         private AllowedStatus allowed;
+        @Schema(description = "카테고리 이름", example = "돈까스")
         private String categoryName;
         @Setter
+        @Schema(description = "식당 휴무일 목록")
         List<ClosedDayResponseDto> closedDayList = new ArrayList<>();
         @Setter
+        @Schema(description = "식당 이미지 목록")
         private List<String> imagePaths;
 
         List<Likes> likesList;
@@ -131,10 +156,15 @@ public class StoreDto {
     @AllArgsConstructor
     @Builder
     public static class StoreSimpleResponseDto {
+        @Schema(description = "식당 고유 번호", example = "1")
         private Long idx;
+        @Schema(description = "식당 이름", example = "모스키친")
         private String name;
+        @Schema(description = "식당 간략 주소", example = "서울 동작구")
         private String shortAddress;
+        @Schema(description = "카테고리 이름", example = "돈까스")
         private String categoryName;
+        @Schema(description = "식당 대표 이미지", example = "thumbnail.png")
         private String thumbnail;
 
         public static StoreSimpleResponseDto from(Store store) {
@@ -152,12 +182,18 @@ public class StoreDto {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    public static class StorePageResponseDto<T> {  // DTO만 제네릭화
+    public static class StorePageResponseDto<T> {  // DTO 제네릭화
+        @Schema(description = "현재 페이지 번호", example = "0")
         private int page;
+        @Schema(description = "한 페이지 당 데이터 개수", example = "10")
         private int size;
+        @Schema(description = "총 데이터 개수", example = "13")
         private long totalElements;
+        @Schema(description = "총 페이지 개수", example = "2")
         private int totalPages;
+        @Schema(description = "다음 페이지 여부", example = "true")
         private boolean hasNext;
+        @Schema(description = "이전 페이지 여부", example = "false")
         private boolean hasPrevious;
 
         private List<T> stores; // DTO 타입을 제네릭으로 변환
@@ -181,11 +217,17 @@ public class StoreDto {
     @AllArgsConstructor
     @Builder
     public static class AdminStoreResponse {
+        @Schema(description = "식당 고유 번호", example = "1")
         private Long idx;
+        @Schema(description = "식당 이름", example = "모스키친")
         private String name;
+        @Schema(description = "식당 간략 주소", example = "서울 동작구")
         private String shortAddress;
+        @Schema(description = "카테고리 이름", example = "돈까스")
         private String categoryName;
+        @Schema(description = "식당 대표 이미지", example = "thumbnail.png")
         private String thumbnail;
+        @Schema(description = "식당 등록 상태", example = "WAITING")
         private AllowedStatus allowed;
 
         public static AdminStoreResponse from(Store store) {
