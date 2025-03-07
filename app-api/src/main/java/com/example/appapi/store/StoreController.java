@@ -21,7 +21,7 @@ import java.util.List;
 public class StoreController {
     private final StoreService storeService;
 
-    // 식당 생성
+    @Operation(summary = "식당  생성 (SELLER)", description = "식당 생성 기능입니다. (SELLER 유저만 가능)")
     @PostMapping("/create")
     public ResponseEntity<BaseResponse<StoreDto.StoreResponseDto>> createStore(
             @AuthenticationPrincipal Users user,
@@ -31,7 +31,7 @@ public class StoreController {
         return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, createStoreRes));
     }
 
-    // 식당 목록 조회
+    @Operation(summary = "식당 전체 조회", description = "식당의 전체 목록을 조회하는 기능입니다.")
     @GetMapping("/list")
     public ResponseEntity<BaseResponse<StoreDto.StorePageResponseDto>> getStoreList(
             @RequestParam(defaultValue = "0") int page,
@@ -43,7 +43,7 @@ public class StoreController {
         return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, response));
     }
 
-    // 식당 상세 조회
+    @Operation(summary = "식당 상세 조회", description = "식당의 상세 정보를 조회하는 기능입니다.")
     @GetMapping("/{storeIdx}")
     public ResponseEntity<BaseResponse<StoreDto.StoreResponseDto>> getStore(@PathVariable Long storeIdx) {
         StoreDto.StoreResponseDto response = storeService.getStore(storeIdx);
