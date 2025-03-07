@@ -75,5 +75,21 @@ public class Store {
         }
     }
 
+    private int reviewCnt;
+    private double starPoint;
+
+    public void updateReviewStatus() {
+        if (storeReviewList.isEmpty()) {
+            this.reviewCnt = 0;
+            this.starPoint = 0.0;
+        } else {
+            this.reviewCnt = storeReviewList.size();
+            this.starPoint = storeReviewList.stream()
+                    .mapToDouble(StoreReview::getStarPoint)
+                    .average()
+                    .orElse(0.0);
+        }
+    }
+
 
 }

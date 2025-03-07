@@ -41,20 +41,20 @@ public class StoreReviewDto {
     @Setter
     public static class ReviewRes {
         private Long idx;
-        private String title;
         private String content;
         private int starPoint;
         private LocalDateTime createdAt;
         private List<String> imageUrls;
+        private String userName;
 
         public static ReviewRes of(StoreReview entity, List<String> imageUrls) {
             return ReviewRes.builder()
                     .idx(entity.getIdx())
-                    .title(entity.getTitle())
                     .content(entity.getContents())
                     .starPoint(entity.getStarPoint())
                     .createdAt(entity.getCreatedAt())
                     .imageUrls(imageUrls)
+                    .userName(entity.getUsers().getName())
                     .build();
         }
     }

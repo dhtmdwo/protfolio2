@@ -17,6 +17,7 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
             "JOIN FETCH s.closedDayList cd " +
             "JOIN FETCH s.user u " +
             "JOIN FETCH s.category c " +
+            "JOIN FETCH s.storeReviewList " +
             "WHERE s.allowed = :allowedStatus")
     Page<Store> findByAllowed(AllowedStatus allowedStatus, PageRequest of);
 
