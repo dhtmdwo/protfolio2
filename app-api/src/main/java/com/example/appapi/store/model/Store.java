@@ -33,6 +33,8 @@ public class Store {
     private LocalTime startTime;
     private LocalTime endTime;
 
+    private Long likesCount;
+
     @Setter
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -62,5 +64,16 @@ public class Store {
 
     @OneToMany(mappedBy = "store")
     private List<StoreReview> storeReviewList;
+
+    public void addLike() {
+        this.likesCount++;
+    }
+
+    public void subLike() {
+        if (this.likesCount > 0) {
+            this.likesCount--;
+        }
+    }
+
 
 }

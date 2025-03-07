@@ -45,6 +45,7 @@ public class StoreDto {
                     .user(user)
                     .allowed(AllowedStatus.WAITING)
                     .category(category)
+                    .likesCount(0L)
                     .build();
         }
     }
