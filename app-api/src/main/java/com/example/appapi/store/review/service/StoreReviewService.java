@@ -59,13 +59,16 @@ public class StoreReviewService {
     } // 마이페이지 클라이언트 식당 리뷰 보기
 
     public void deleteReview(Long idx) {
-        storeReviewRepository.findById(idx).ifPresentOrElse(
-                storeReviewRepository::delete,
-                () -> {
-                    throw new IllegalArgumentException("해당 식당이 존재하지 않습니다");
-                }
-        );// idx 값으로 검색후 있으면 삭제 없으면 예외처리
-    } // 마이페이지 클라이언트 식당 리뷰 삭제
+        StoreReview storeReview = storeReviewRepository.findById(idx).orElseThrow(
+                () -> new IllegalArgumentException("해당 리뷰가 존재하지 않습니다")
+        );
+
+        Store store = storeReview.getStore();
+        storeReviewRepository.delete(storeReview);
+        store.getStoreReviewList().remove(storeReview);
+        store.updateReviewStatus();
+        storeRepository.save(store);
+    }
 
 }
 

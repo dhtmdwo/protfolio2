@@ -79,6 +79,12 @@ public class StoreService {
 
     public StoreDto.StorePageResponseDto<StoreDto.StoreSimpleResponseDto> list(int page, int size, String sort, Long categoryIdx) {
         Page<Store> result = storeQueryRepository.search(page, size, sort, categoryIdx);
+
+        result.forEach(store -> {
+            store.updateReviewStatus();
+            storeRepository.save(store);    // 최근 리뷰 총 개수, 평균 별점 반영
+        });
+
         return StoreDto.StorePageResponseDto.from(result, StoreDto.StoreSimpleResponseDto::from);
     }
 
@@ -86,6 +92,9 @@ public class StoreService {
         Store store = storeRepository.findByIdWithClosedDaysAndUserAndCategory(storeIdx).orElseThrow(
                 () ->  new BaseException(BaseResponseStatus.STORE_NOT_FOUND)
         );
+
+        store.updateReviewStatus();
+        storeRepository.save(store);    // 최근 리뷰 총 개수, 평균 별점 반영
 
         return StoreDto.StoreResponseDto.from(store);
     }
