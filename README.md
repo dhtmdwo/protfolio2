@@ -39,10 +39,6 @@
 ![AWS EC2](https://img.shields.io/badge/Amazon%20EC2-FF9900?style=for-the-badge&logo=Amazon%20EC2&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=FFFFFF)
 
-프론트엔드
-
-![Vue.js](https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![pinia](https://img.shields.io/badge/Pinia-ffd859?style=for-the-badge&logoColor=black) ![NginX](https://img.shields.io/badge/NginX-009639?style=for-the-badge&logo=nginx&logoColor=white)
-
 DB
 
 <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white"/></a></a>
@@ -50,7 +46,7 @@ DB
 백엔드
 
 <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=black"/></a></a> <img src="https://img.shields.io/badge/SpringSecurity-6DB33F?style=flat-square&logo=SpringSecurity&logoColor=white"/></a></a>
-
+<img src="https://camo.githubusercontent.com/1882bfea094d34d0fecd347e7ff33ec2f7152d3d765a1892b2ce962092dfeeb2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f537072696e67253230646174612532306a70612d3644423333463f7374796c653d666f722d7468652d6261646765266c6f676f3d537072696e67253230426f6f74266c6f676f436f6c6f723d7768697465" /></a>
 <br>
 <br>
 
