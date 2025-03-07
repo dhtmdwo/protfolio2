@@ -62,6 +62,12 @@ DB
 <br>
 <br>
 
+## 📃 프론트 프로젝트 github 주소
+
+[프론트 프로젝트 github 주소](https://github.com/beyond-sw-camp/be12-2nd-Matfia-Eatzzy)
+<br>
+
+
 ## 📃 API 명세서
 
 [API 명세서](http://www.eatzzy-back.kro.kr:8082/swagger-ui/index.html)
