@@ -102,5 +102,6 @@ DB
 [소프트웨어 아키텍처](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/SW-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
 <br>
 
-## 배포 주소
+## 사이트 접속 주소
+[사이트 접속 주소](https://www.eatzzy.kro.kr/)
 
