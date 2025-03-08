@@ -67,7 +67,9 @@ public class MenusDto {
     @Builder
     @Getter
     public static class DeleteMenuResponse {
+        @Schema(description = "삭제한 메뉴 고유번호", example = "1")
         private Long menuIdx;
+        @Schema(description = "삭제 완료 메세지", example = "메뉴가 삭제되었습니다.")
         private String message;
         public static DeleteMenuResponse from(Long menuIdx) {
             return DeleteMenuResponse.builder()
@@ -79,6 +81,7 @@ public class MenusDto {
 
     @Getter
     public static class DeleteMenuRequest {
+        @Schema(description = "삭제할 메뉴 고유번호", example = "1")
         private Long menuIdx;
     }
 }

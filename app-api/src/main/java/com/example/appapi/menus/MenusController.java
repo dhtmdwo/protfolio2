@@ -34,17 +34,13 @@ public class MenusController {
 
         return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, response));
     }
+    @Operation(summary = "점주 내 식당 메뉴 삭제하기", description = "해당 식당의 메뉴 삭제하기 기능")
     @DeleteMapping("/delete")
     public ResponseEntity<BaseResponse<MenusDto.DeleteMenuResponse>> deleteMenu(
             @AuthenticationPrincipal Users user,
             @RequestBody MenusDto.DeleteMenuRequest dto
     ){
         MenusDto.DeleteMenuResponse resp = menusService.deleteMenu(dto.getMenuIdx(), user.getIdx());
-        try {
-            return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, resp));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.ACCOUNT_UPDATE_FAILED));
-        }
+        return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, resp));
     }
 }
