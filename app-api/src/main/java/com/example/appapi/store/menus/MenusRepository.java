@@ -1,6 +1,6 @@
-package com.example.appapi.menus;
+package com.example.appapi.store.menus;
 
-import com.example.appapi.menus.model.Menus;
+import com.example.appapi.store.menus.model.Menus;
 import com.example.appapi.store.model.Store;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

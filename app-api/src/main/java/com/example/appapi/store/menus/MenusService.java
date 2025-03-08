@@ -1,13 +1,10 @@
-package com.example.appapi.menus;
+package com.example.appapi.store.menus;
 
-import com.example.appapi.menus.model.Menus;
-import com.example.appapi.menus.model.MenusDto;
+import com.example.appapi.store.menus.model.Menus;
+import com.example.appapi.store.menus.model.MenusDto;
 import com.example.appapi.store.StoreRepository;
-import com.example.appapi.store.StoreService;
 import com.example.appapi.store.model.Store;
 import com.example.appapi.users.model.Users;
-import com.example.common.BaseResponseStatus;
-import com.example.common.exception.BaseException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
