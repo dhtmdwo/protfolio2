@@ -2,8 +2,10 @@ package com.example.appapi.menus.model;
 
 import com.example.appapi.store.model.Store;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 public class MenusDto {
     @Builder
@@ -29,7 +31,7 @@ public class MenusDto {
         private int price;
         @Schema(description = "메뉴설명", example = "부대찌개는 2인 이상 주문 가능합니다")
         private String info;
-        @Schema(description = "상품 고유번호", example = "1")
+        @Schema(description = "상점 고유번호", example = "1")
         private Long storeIdx;
 
         public Menus toEntity(Store store){
@@ -45,6 +47,8 @@ public class MenusDto {
     @Builder
     @Getter
     public static class MenuListResponseDto {
+        @Schema(description = "메뉴 고유번호", example = "1")
+        private Long idx;
         @Schema(description = "메뉴명", example = "부대찌개")
         private String name;
         @Schema(description = "메뉴가격", example = "110000")
@@ -53,11 +57,28 @@ public class MenusDto {
         private String info;
         public static MenuListResponseDto from(Menus menus) {
             return MenuListResponseDto.builder()
+                    .idx(menus.getIdx())
                     .name(menus.getName())
                     .price(menus.getPrice())
                     .info(menus.getInfo())
                     .build();
         }
+    }
+    @Builder
+    @Getter
+    public static class DeleteMenuResponse {
+        private Long menuIdx;
+        private String message;
+        public static DeleteMenuResponse from(Long menuIdx) {
+            return DeleteMenuResponse.builder()
+                    .menuIdx(menuIdx)
+                    .message("메뉴가 삭제되었습니다.")
+                    .build();
+        }
+    }
 
+    @Getter
+    public static class DeleteMenuRequest {
+        private Long menuIdx;
     }
 }
