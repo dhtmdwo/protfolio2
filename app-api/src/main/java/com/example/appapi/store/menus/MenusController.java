@@ -1,6 +1,6 @@
-package com.example.appapi.menus;
+package com.example.appapi.store.menus;
 
-import com.example.appapi.menus.model.MenusDto;
+import com.example.appapi.store.menus.model.MenusDto;
 import com.example.appapi.users.model.Users;
 import com.example.common.BaseResponse;
 import com.example.common.BaseResponseStatus;

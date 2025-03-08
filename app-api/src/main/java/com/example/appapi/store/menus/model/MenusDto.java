@@ -1,11 +1,9 @@
-package com.example.appapi.menus.model;
+package com.example.appapi.store.menus.model;
 
 import com.example.appapi.store.model.Store;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 public class MenusDto {
     @Builder

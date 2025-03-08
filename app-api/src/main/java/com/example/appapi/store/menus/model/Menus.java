@@ -1,4 +1,4 @@
-package com.example.appapi.menus.model;
+package com.example.appapi.store.menus.model;
 
 import com.example.appapi.store.model.Store;
 import jakarta.persistence.*;
