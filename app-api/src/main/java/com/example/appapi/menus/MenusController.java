@@ -34,4 +34,17 @@ public class MenusController {
 
         return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, response));
     }
+    @DeleteMapping("/delete")
+    public ResponseEntity<BaseResponse<MenusDto.DeleteMenuResponse>> deleteMenu(
+            @AuthenticationPrincipal Users user,
+            @RequestBody MenusDto.DeleteMenuRequest dto
+    ){
+        MenusDto.DeleteMenuResponse resp = menusService.deleteMenu(dto.getMenuIdx(), user.getIdx());
+        try {
+            return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, resp));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.ACCOUNT_UPDATE_FAILED));
+        }
+    }
 }

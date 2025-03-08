@@ -37,4 +37,13 @@ public class MenusService {
         }
         return resp;
     }
+
+    @Transactional
+    public MenusDto.DeleteMenuResponse deleteMenu(Long menuIdx, Long userIdx) {
+        int deleteCount = menusRepository.deleteByIdxAndUserIdx(menuIdx, userIdx);
+        if (deleteCount == 0) {
+            throw new IllegalArgumentException();
+        }
+        return MenusDto.DeleteMenuResponse.from(menuIdx);
+    }
 }
