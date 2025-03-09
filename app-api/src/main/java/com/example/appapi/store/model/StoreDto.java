@@ -119,6 +119,8 @@ public class StoreDto {
         private AllowedStatus allowed;
         @Schema(description = "카테고리 이름", example = "돈까스")
         private String categoryName;
+        @Schema(description = "카테고리 idx", example = "1")
+        private Long categoryIdx;
         @Schema(description = "총 리뷰 수", example = "52")
         private int reviewCnt;
         @Schema(description = "평균 별점", example = "4.5")
@@ -146,6 +148,7 @@ public class StoreDto {
                     .shortAddress(store.getShortAddress())
                     .allowed(store.getAllowed())
                     .categoryName(store.getCategory().getName())
+                    .categoryIdx(store.getCategory().getIdx())
                     .starPoint(store.getStarPoint())
                     .reviewCnt(store.getReviewCnt())
                     .closedDayList(store.getClosedDayList() == null ? null
