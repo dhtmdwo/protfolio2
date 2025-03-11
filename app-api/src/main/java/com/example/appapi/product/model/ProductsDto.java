@@ -81,8 +81,11 @@ public class ProductsDto {
     @Getter
     @Builder
     public static class DetailResponse {
+        @Schema(description = "상품의 고유 식별자", example = "1")
+        private Long idx;
+
         @Schema(description = "대표 이미지 경로", example = "/images/product1.jpg")
-        private String image;
+        private String imgPath;
 
         @Schema(description = "평균 별점", example = "4.5")
         private double starPoint;
@@ -91,7 +94,7 @@ public class ProductsDto {
         private int reviewCnt;
 
         @Schema(description = "상품의 이름", example = "스마트폰")
-        private String productName;
+        private String name;
 
         @Schema(description = "상품의 가격 (원 단위)", example = "999000")
         private int price;
@@ -101,8 +104,9 @@ public class ProductsDto {
 
         public static DetailResponse fromEntity(Products products) {
             return DetailResponse.builder()
-                    .productName(products.getName())
-                    .image(products.getImages().get(0).getImagePath())
+                    .idx(products.getIdx())
+                    .name(products.getName())
+                    .imgPath(products.getImages().get(0).getImagePath())
                     .price(products.getPrice())
                     //반정규화 전
                     .reviewCnt(products.getReviews().size())
