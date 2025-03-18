@@ -36,7 +36,7 @@ public class ResvController {
     }
 
     @Operation(summary = "예약 취소하기 (CLIENT)")
-    @GetMapping("/mypage/delete/{idx}")
+    @DeleteMapping("/mypage/delete/{idx}")
     public ResponseEntity<BaseResponse<String>> deleteResv(@PathVariable Long idx) {
         resvService.deleteReservation(idx);
         return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS, "예약이 성공적으로 취소되었습니다."));

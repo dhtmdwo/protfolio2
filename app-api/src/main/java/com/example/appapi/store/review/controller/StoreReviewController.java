@@ -56,10 +56,10 @@ public class StoreReviewController {
     }
 
     @Operation(summary = "식당 리뷰 삭제하기 (CLIENT)", description = "고객이 자신이 작성한 식당 리뷰를 삭제하는 기능")
-    @GetMapping("/mypage/storedelete/{reviewIdx}")
-    public ResponseEntity<String> deleteLikes(@PathVariable Long reviewIdx) {
+    @DeleteMapping("/mypage/storedelete/{reviewIdx}")
+    public ResponseEntity<BaseResponse<String>> deleteLikes(@PathVariable Long reviewIdx) {
         storeReviewService.deleteReview(reviewIdx);
-        return ResponseEntity.ok("삭제 완료");
+        return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS,"삭제 완료"));
     } // 마이페이지 클라이언트 식당 리뷰 삭제      
 
     

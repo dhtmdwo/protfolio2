@@ -28,11 +28,11 @@ public class LikesController {
         return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS,responseList));
     } // 마이페이지 클라이언트 좋아요 한 식당 내역 보기
 
-    @Operation(summary = "식당 좋아요, 식당 좋아요 취소하기 (CLIENT)")
-    @GetMapping("/mypage/deletestore/{storeIdx}")
-    public ResponseEntity<BaseResponse<String>> deleteLikes(@AuthenticationPrincipal Users users, @PathVariable Long storeIdx) {
+    @Operation(summary = "식당 좋아요(취소 포함) (CLIENT)")
+    @PostMapping("/mypage/updatestore/{storeIdx}")
+    public ResponseEntity<BaseResponse<String>> updateLikes(@AuthenticationPrincipal Users users, @PathVariable Long storeIdx) {
         Long userIdx = users.getIdx();
-        likesService.deleteLikes(userIdx, storeIdx);
+        likesService.updateLikes(userIdx, storeIdx);
         return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS,"작업 완료"));
     } // 마이페이지 클라이언트 식당 좋아요 삭제
 

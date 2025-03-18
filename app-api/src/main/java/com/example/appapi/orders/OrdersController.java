@@ -34,9 +34,10 @@ public class OrdersController {
     }
 
     @GetMapping("/mypage/orderlist")
-    public ResponseEntity<List<OrdersDto.OrderMypageList>> storeList(@RequestParam("idx") Long idx) {
-        List<OrdersDto.OrderMypageList> responseList = ordersService.orderList(idx);
-        return ResponseEntity.ok(responseList);
+    public ResponseEntity<BaseResponse<List<OrdersDto.OrderMypageList>>> storeList(@AuthenticationPrincipal Users user) {
+
+        List<OrdersDto.OrderMypageList> responseList = ordersService.orderList(user.getIdx());
+        return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, responseList));
     } // 마이페이지 클라이언트 주문 리스트 보기
 
     @GetMapping("/mypage/orderdetails")
