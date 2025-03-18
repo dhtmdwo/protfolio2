@@ -38,8 +38,10 @@ public class LikesDto {
         private String storecallNumber; // 식당 번호
 
         public static LikesDto.StoreLikesResponse from(Store store) {
-            String storeImageUrl = store.getImages().get(0).getImagePath();
-
+            String storeImageUrl = "";
+            if(store.getImages() != null && !store.getImages().isEmpty()) {
+                storeImageUrl = store.getImages().get(0).getImagePath();
+            }
             return LikesDto.StoreLikesResponse.builder()
                     .idx(store.getIdx())
                     .storeImage(storeImageUrl)

@@ -41,6 +41,7 @@ public class StoreReviewDto {
     @Setter
     public static class ReviewRes {
         private Long idx;
+        private String title;
         private String content;
         private int starPoint;
         private LocalDateTime createdAt;
@@ -50,6 +51,7 @@ public class StoreReviewDto {
         public static ReviewRes of(StoreReview entity, List<String> imageUrls) {
             return ReviewRes.builder()
                     .idx(entity.getIdx())
+                    .title(entity.getTitle())
                     .content(entity.getContents())
                     .starPoint(entity.getStarPoint())
                     .createdAt(entity.getCreatedAt())
@@ -63,6 +65,7 @@ public class StoreReviewDto {
     @Getter
     public static class StoreReivewResponse {
         private Long idx;          // 테이블 idx
+        private String title;
         private String contents; // 내용
         private int starPoint; // 별점
         private List<String> reviewImage; // 리뷰 이미지
@@ -72,6 +75,7 @@ public class StoreReviewDto {
 
             return StoreReviewDto.StoreReivewResponse.builder()
                     .idx(storeReview.getIdx())
+                    .title(storeReview.getTitle())
                     .contents(storeReview.getContents())
                     .starPoint(storeReview.getStarPoint())
                     .reviewImage(imageUrls)

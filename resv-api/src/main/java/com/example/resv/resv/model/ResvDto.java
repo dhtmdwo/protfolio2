@@ -100,7 +100,7 @@ public class ResvDto {
             String storeImageUrl = store.getImages().isEmpty() ? null : store.getImages().get(0).getImagePath();
 
             return StoreRezResponse.builder()
-                    .idx(store.getIdx())
+                    .idx(resv.getIdx())
                     .storeImage(storeImageUrl)
                     .storeAddress(store.getAddress())
                     .storeName(store.getName())

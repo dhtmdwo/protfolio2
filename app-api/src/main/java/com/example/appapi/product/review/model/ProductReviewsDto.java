@@ -45,6 +45,12 @@ public class ProductReviewsDto {
     @Getter
     @Builder
     public static class ProductReviewResponse {
+        @Schema(description = "리뷰 id값", example = "1")
+        private Long idx;
+
+        @Schema(description = "리뷰 제목", example = "이 제품은 정말 훌륭합니다!")
+        private String title;
+        
         @Schema(description = "리뷰 내용", example = "이 제품은 정말 훌륭합니다!")
         private String contents;
 
@@ -59,6 +65,8 @@ public class ProductReviewsDto {
 
         public static ProductReviewResponse from(ProductReviews productReviews, List<String> imageUrls) {
             return ProductReviewResponse.builder()
+                    .idx(productReviews.getIdx())
+                    .title(productReviews.getTitle())
                     .contents(productReviews.getContent())
                     .starPoint(productReviews.getStarPoint())
                     .reviewImage(imageUrls)

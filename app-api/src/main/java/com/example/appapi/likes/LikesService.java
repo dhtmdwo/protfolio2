@@ -36,7 +36,7 @@ public class LikesService {
         return responseList;
     } // 마이페이지 좋아요 한 식당 내역 보기
 
-    public void deleteLikes(Long userIdx, Long storeIdx) {
+    public void updateLikes(Long userIdx, Long storeIdx) {
 
         Optional<Likes> likes = likesRepository.findLikesByUserIdANDStoreId(userIdx,storeIdx);
 

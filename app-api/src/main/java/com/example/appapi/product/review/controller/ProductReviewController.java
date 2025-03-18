@@ -5,6 +5,7 @@ import com.example.appapi.product.review.service.ProductReviewsService;
 import com.example.appapi.store.review.model.StoreReviewDto;
 import com.example.appapi.users.model.Users;
 import com.example.common.BaseResponse;
+import com.example.common.BaseResponseStatus;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -23,18 +24,18 @@ public class ProductReviewController {
 
     @Operation(summary = "작성한 상품 리뷰 보기(클라이언트)")
     @GetMapping("/mypage/store")
-    public ResponseEntity<List<ProductReviewsDto.ProductReviewResponse>> storeList
+    public ResponseEntity<BaseResponse<List<ProductReviewsDto.ProductReviewResponse>>> storeList
             (@AuthenticationPrincipal Users user)
     {
         List<ProductReviewsDto.ProductReviewResponse> responseList = productReviewsService.productList(user.getIdx());
-        return ResponseEntity.ok(responseList);
+        return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS,responseList));
     } // 마이페이지 클라이언트 식당 리뷰 보기
 
     @Operation(summary = "작성한 상품 리뷰 삭제 (CLIENT)")
-    @GetMapping("/mypage/productdelete/{reviewIdx}")
-    public ResponseEntity<String> deleteLikes(@PathVariable Long reviewIdx) {
+    @DeleteMapping("/mypage/productdelete/{reviewIdx}")
+    public ResponseEntity<BaseResponse<String>> deleteLikes(@PathVariable Long reviewIdx) {
         productReviewsService.deleteReview(reviewIdx);
-        return ResponseEntity.ok("삭제 완료");
+        return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS,"삭제 완료"));
     } // 마이페이지 클라이언트 상품 리뷰 삭제
 
     @Operation(summary = "상품 리뷰 작성하기 (CLIENT)")
@@ -48,10 +49,10 @@ public class ProductReviewController {
 
     @Operation(summary = "작성 가능한 리뷰 (CLIENT)")
     @GetMapping("/reviewable")
-    public ResponseEntity<List<ProductReviewsDto.ReviewablesResponse>> getReviewables
+    public ResponseEntity<BaseResponse<List<ProductReviewsDto.ReviewablesResponse>>> getReviewables
             (@AuthenticationPrincipal Users user)
     {
         List<ProductReviewsDto.ReviewablesResponse> resp = productReviewsService.getReviewables(user.getIdx());
-        return ResponseEntity.ok(resp);
+        return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS,resp));
     }
 }
