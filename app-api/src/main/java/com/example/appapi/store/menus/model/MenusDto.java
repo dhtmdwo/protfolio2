@@ -25,18 +25,21 @@ public class MenusDto {
     public static class CreateMenuRequestDto {
         @Schema(description = "메뉴명", example = "부대찌개")
         private String name;
-        @Schema(description = "메뉴가격", example = "110000")
-        private int price;
+        @Schema(description = "메뉴 이미지 경로")
+        private String imagePath;
         @Schema(description = "메뉴설명", example = "부대찌개는 2인 이상 주문 가능합니다")
         private String info;
+        @Schema(description = "메뉴가격", example = "110000")
+        private int price;
         @Schema(description = "상점 고유번호", example = "1")
         private Long storeIdx;
 
         public Menus toEntity(Store store){
             return Menus.builder()
                     .name(name)
-                    .price(price)
+                    .imagePath(imagePath)
                     .info(info)
+                    .price(price)
                     .store(store)
                     .build();
         }

@@ -19,6 +19,7 @@ public class Menus {
     private String name;
     private int price;
     private String info;
+    private String imagePath;
 
     @ManyToOne
     @JoinColumn(name = "store_idx")
