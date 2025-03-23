@@ -113,4 +113,8 @@ public class ProductsService {
         products.calculateStarPoint(starPoint);
         productsRepository.save(products);
     }
+
+    public Page<Products> getSearchList(int page, int size, String keyword) {
+        return productsRepository.findByNameContaining(keyword,PageRequest.of(page, size));
+    }
 }

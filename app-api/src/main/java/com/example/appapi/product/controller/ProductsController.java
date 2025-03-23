@@ -8,6 +8,7 @@ import com.example.common.BaseResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -47,8 +48,21 @@ public class ProductsController {
 
     @Operation(summary = "상품 카테고리 조회", description = "카테고리로 상품을 조회하는 기능")
     @GetMapping("/{categoryIdx}/list")
-    public ResponseEntity<BaseResponse<List<ProductsDto.InfoResponse>>> getProductsWithCategory(int page, int size, @RequestParam(required = false) String sort,@PathVariable Long categoryIdx) {
+    public ResponseEntity<BaseResponse<List<ProductsDto.InfoResponse>>> getProductsWithCategory(
+            int page,
+            int size,
+            @RequestParam(required = false) String sort,
+            @PathVariable Long categoryIdx) {
         return ResponseEntity.ok(new BaseResponse(productsService.listWithCategoryNPlusOne(page, size, sort, categoryIdx)));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<BaseResponse<ProductsDto.ProductPageResponseDto>> getSearchedProducts(
+            int page,
+            int size,
+            @RequestParam String keyword
+    ){
+        ProductsDto.ProductPageResponseDto result = ProductsDto.ProductPageResponseDto.from(productsService.getSearchList(page, size, keyword), ProductsDto.InfoResponse::fromEntity);
+        return ResponseEntity.ok(new BaseResponse(result));
+    }
 }
