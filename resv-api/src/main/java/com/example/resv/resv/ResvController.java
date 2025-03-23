@@ -53,13 +53,13 @@ public class ResvController {
         return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS, responseList));
     }
 
-//    @Operation(summary = "예약한 식당 중 리뷰 작성 가능한 식당 (CLIENT)")
-//    @GetMapping("/mypage/store/canreview")
-//    public ResponseEntity<BaseResponse<ResvDto.ResvPageResponseDto>> getCanReviewStoreList(
-//            @AuthenticationPrincipal Users user) {
-//        ResvDto.ResvPageResponseDto responseList = resvService.myStoreResv(user, storeIdx, page, size);
-//        return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS, responseList));
-//    }
+    @Operation(summary = "예약한 식당 중 리뷰 작성 가능한 식당 (CLIENT)")
+    @GetMapping("/mypage/store/canreview")
+    public ResponseEntity<BaseResponse<List<ResvDto.ResvCanReviewResponseDto>>> getCanReviewStoreList(
+            @AuthenticationPrincipal Users user) {
+        List<ResvDto.ResvCanReviewResponseDto> responseList = resvService.getCanReviewStoreList(user.getIdx());
+        return ResponseEntity.ok(new BaseResponse<>(BaseResponseStatus.SUCCESS, responseList));
+    }
     
 
 }
