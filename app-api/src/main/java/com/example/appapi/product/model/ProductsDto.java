@@ -1,12 +1,15 @@
 package com.example.appapi.product.model;
 
 import com.example.appapi.product.review.model.ProductReviews;
+import com.example.appapi.store.model.Store;
+import com.example.appapi.store.model.StoreDto;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ProductsDto {
 
@@ -145,6 +148,39 @@ public class ProductsDto {
                             entity.getImages() == null ? List.of() : entity.getImages().stream()
                                     .map(image -> image.getImagePath()).toList()
                     )
+                    .build();
+        }
+    }
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class ProductPageResponseDto<T> {  // DTO 제네릭화
+        @Schema(description = "현재 페이지 번호", example = "0")
+        private int page;
+        @Schema(description = "한 페이지 당 데이터 개수", example = "10")
+        private int size;
+        @Schema(description = "총 데이터 개수", example = "13")
+        private long totalElements;
+        @Schema(description = "총 페이지 개수", example = "2")
+        private int totalPages;
+        @Schema(description = "다음 페이지 여부", example = "true")
+        private boolean hasNext;
+        @Schema(description = "이전 페이지 여부", example = "false")
+        private boolean hasPrevious;
+
+        private List<T> products; // DTO 타입을 제네릭으로 변환
+
+        public static <T> ProductPageResponseDto<T> from(Page<Products> productPage, Function<Products, T> dtoConverter) {
+            return ProductPageResponseDto.<T>builder()
+                    .page(productPage.getNumber())
+                    .size(productPage.getSize())
+                    .totalElements(productPage.getTotalElements())
+                    .totalPages(productPage.getTotalPages())
+                    .hasNext(productPage.hasNext())
+                    .hasPrevious(productPage.hasPrevious())
+                    .products(productPage.stream().map(dtoConverter).collect(Collectors.toList()))
                     .build();
         }
     }
