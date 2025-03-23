@@ -1,8 +1,8 @@
 package com.example.resv.resv;
 
 import com.example.appapi.store.StoreRepository;
+import com.example.appapi.store.images.model.StoreImages;
 import com.example.appapi.store.model.Store;
-import com.example.appapi.store.model.StoreDto;
 import com.example.appapi.users.model.Users;
 import com.example.common.BaseResponseStatus;
 import com.example.common.exception.BaseException;
@@ -70,18 +70,24 @@ public class ResvService {
         return ResvDto.ResvPageResponseDto.from(result);
     }
 
-//    public ResvDto.ResvPageResponseDto getCanReviewStoreList(Users user, Long storeIdx, int page, int size) {
-//        List<Resv> resvList = resvRepository.findReservationsByUserId(user.getIdx());
-//        List<ResvDto.StoreRezResponse> responseList = new ArrayList<>();
-//
-//        for (Resv reservation : resvList) {
-//            Store store = reservation.getStore();
-//            ResvDto.StoreRezResponse response = ResvDto.StoreRezResponse.from(store, reservation);
-//            responseList.add(response);
-//        }
-//
-//
-//        return ResvDto.ResvPageResponseDto.from(responseList);
-//    } // 예약 한 식당 중 리뷰 가능한 식당
+    public List<ResvDto.ResvCanReviewResponseDto> getCanReviewStoreList(Long userIdx) {
+        List<Resv> reservations = resvRepository.findReservationsByUserId(userIdx);
+
+        List<ResvDto.ResvCanReviewResponseDto> responseList = new ArrayList<>();
+
+        for (Resv reservation : reservations) {
+            if("NO".equals(reservation.getIsReviewed())) {
+                Store store = reservation.getStore();
+                List<StoreImages> images = store.getImages();
+                String storeImage = "default-image.png";
+                if(images !=null && images.size()>0) {
+                    storeImage = images.get(0).getImagePath();
+                }
+                ResvDto.ResvCanReviewResponseDto response = ResvDto.ResvCanReviewResponseDto.from(reservation, store, storeImage);
+                responseList.add(response);
+            }
+        }
+        return responseList;
+    } // 예약 한 식당 중 리뷰 가능한 식당
 
 }

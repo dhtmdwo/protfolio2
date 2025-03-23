@@ -21,4 +21,6 @@ public interface ResvRepository extends JpaRepository<Resv, Long> {
             "WHERE r.store.idx = :storeIdx")
     Page<Resv> findAllByStore(Long storeIdx, PageRequest pr);
 
+
+
 }

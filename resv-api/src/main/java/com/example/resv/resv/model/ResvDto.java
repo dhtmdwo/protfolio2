@@ -1,5 +1,6 @@
 package com.example.resv.resv.model;
 
+import com.example.appapi.store.images.model.StoreImages;
 import com.example.appapi.store.model.Store;
 import com.example.appapi.store.model.StoreDto;
 import com.example.appapi.users.model.Users;
@@ -145,5 +146,27 @@ public class ResvDto {
                     .build();
         }
     }
+
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class ResvCanReviewResponseDto {
+        private Long resvIdx; // resvIdx 값
+        private String storeName; // 식당 이름
+        private LocalDate resvDate; // 식당 예약 날짜
+        private String ImageUrl; // 식당 이미지
+
+        public static ResvCanReviewResponseDto from(Resv resv, Store store, String storeImages) {
+            return ResvCanReviewResponseDto.builder()
+                    .resvIdx(resv.getIdx())
+                    .storeName(store.getName())
+                    .resvDate(resv.getDate())
+                    .ImageUrl(storeImages)
+                    .build();
+        }
+    }
+
 
 }
