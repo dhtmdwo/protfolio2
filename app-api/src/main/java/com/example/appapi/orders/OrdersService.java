@@ -1,5 +1,6 @@
 package com.example.appapi.orders;
 
+import com.example.appapi.delivery.model.Delivery;
 import com.example.appapi.orders.orderProducts.model.OrderProducts;
 import com.example.appapi.orders.orderProducts.model.OrderProductsDto;
 import com.example.appapi.orders.model.Orders;
@@ -86,7 +87,8 @@ public class OrdersService {
         OrdersDto.OrderMypageList orderMypage = OrdersDto.OrderMypageList.from(orders, myOrderList); // mypageList
         Users users = orders.getUser();
         Payment payment = orders.getPayments().get(0);
-        OrdersDto.OrderMypageDetails orderMypageDetails = OrdersDto.OrderMypageDetails.from(orderMypage, orders, users, payment);
+        Delivery delivery = orders.getDelivery();
+        OrdersDto.OrderMypageDetails orderMypageDetails = OrdersDto.OrderMypageDetails.from(orderMypage, orders, users, payment, delivery);
 
         return orderMypageDetails;
     } // 마이페이지 클라이언트 주문 상세 보기

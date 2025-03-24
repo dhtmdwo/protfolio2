@@ -1,5 +1,6 @@
 package com.example.appapi.orders.model;
 
+import com.example.appapi.delivery.model.Delivery;
 import com.example.appapi.orders.orderProducts.model.OrderProductsDto;
 import com.example.appapi.payment.model.Payment;
 import com.example.appapi.users.model.Users;
@@ -78,6 +79,7 @@ public class OrdersDto {
         private String message;
         @Schema(description = "주문상태", example = "Paying")
         private String status;
+
         private List<OrderProductsDto.OrderProductResponse> OrderProductResponse;
 
         public static OrdersResponse from(Orders orders, List<OrderProductsDto.OrderProductResponse> resp) {
@@ -146,8 +148,10 @@ public class OrdersDto {
         private String message; // 주문 요청사항
 
         private Long paymentIdx; // 주문 취소시 사용
+        private String courier_company; // 택배 회사
+        private int tracking_number;    // 운송장 번호
 
-        public static OrderMypageDetails from(OrderMypageList orderMypageList, Orders orders, Users users, Payment payment) {
+        public static OrderMypageDetails from(OrderMypageList orderMypageList, Orders orders, Users users, Payment payment, Delivery delivery) {
             String paymentMethod = payment.getPaymentMethod().getName();
 
             return OrderMypageDetails.builder()
@@ -160,6 +164,8 @@ public class OrdersDto {
                     .address(users.getAddress() + " "+ users.getAddressDetail()) // 유저 주소 + 상세주소
                     .message(orders.getMessage()) //
                     .paymentIdx(payment.getIdx())
+                    .courier_company(delivery.getCourier_company())
+                    .tracking_number(delivery.getTracking_number())
                     .build();
         }
     } // 마이페이지 클라이언트 주문 목록
