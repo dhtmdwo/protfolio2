@@ -24,7 +24,7 @@ public class Payment {
     private String transactionType;
     private int price; // 금액
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "PaymentMethod_idx")
     private PaymentMethod paymentMethod;
 

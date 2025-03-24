@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +19,7 @@ public class PaymentMethod {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
     private String name;
-    @OneToOne(mappedBy = "paymentMethod")
-    private Payment payment;
+    @OneToMany(mappedBy = "paymentMethod")
+    private List<Payment> payment;
 
 }

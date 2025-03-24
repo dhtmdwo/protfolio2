@@ -41,9 +41,10 @@ public class OrdersController {
     } // 마이페이지 클라이언트 주문 리스트 보기
 
     @GetMapping("/mypage/orderdetails")
-    public ResponseEntity<OrdersDto.OrderMypageDetails> storeDetails(@RequestParam("idx") Long idx, @RequestParam("orderIdx") Long orderIdx) {
-        OrdersDto.OrderMypageDetails response = ordersService.orderDetails(idx, orderIdx);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<BaseResponse<OrdersDto.OrderMypageDetails>> storeDetails(@AuthenticationPrincipal Users user, @RequestParam("orderIdx") Long orderIdx) {
+
+        OrdersDto.OrderMypageDetails response = ordersService.orderDetails(user.getIdx(), orderIdx);
+        return ResponseEntity.ok(new BaseResponse(BaseResponseStatus.SUCCESS, response));
     } // 마이페이지 클라이언트 주문 상세 보기
 
     @Operation(summary = "주문 상세보기", description = "내 주문 상세 보기")
