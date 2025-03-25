@@ -4,6 +4,9 @@ import com.example.appapi.store.model.Store;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
 
 public class MenusDto {
     @Builder
@@ -13,6 +16,13 @@ public class MenusDto {
         private String name;
         @Schema(description = "메뉴가격", example = "110000")
         private int price;
+        @Schema(description = "이미지", example = "/2025/02/02/~")
+        @Setter
+        private String imagePath;
+        @Setter
+        @Schema(description = "상품 이미지 URL들의 리스트")
+        private String imageUrls;
+
         public static MenusResponseDto from(Menus menus) {
             return MenusResponseDto.builder()
                     .name(menus.getName())
@@ -34,10 +44,10 @@ public class MenusDto {
         @Schema(description = "상점 고유번호", example = "1")
         private Long storeIdx;
 
-        public Menus toEntity(Store store){
+        public Menus toEntity(Store store, String uploadFilePath){
             return Menus.builder()
                     .name(name)
-                    .imagePath(imagePath)
+                    .imagePath(uploadFilePath)
                     .info(info)
                     .price(price)
                     .store(store)
