@@ -68,23 +68,6 @@ DB
 <br>
 
 
-## 📃 API 명세서
-
-[API 명세서](http://www.eatzzy-back.kro.kr:8082/swagger-ui/index.html)
-<br>
-
-## 🔎 핵심 기능
-
-[핵심 기능]()
-<br>
-<br>
-
-## ⚙ 기능 테스트
-
-[기능 테스트]()
-<br>
-<br>
-
 ## ⚙ 성능 개선
 
 [성능 개선](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
@@ -108,6 +91,4 @@ DB
 [소프트웨어 아키텍처](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/SW-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
 <br>
 
-## 사이트 접속 주소
-[사이트 접속 주소](https://www.eatzzy.kro.kr/)
 
