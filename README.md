@@ -73,25 +73,25 @@ DB
 
 ## ⚙ 성능 개선
 
-[성능 개선](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
+[성능 개선](https://github.com/dhtmdwo/protfolio2/wiki/%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)
 <br>
 <br>
 
 ## 🔗 코딩 컨벤션
 
-[코딩 컨벤션](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%BD%94%EB%93%9C-%EC%BB%A8%EB%B2%A4%EC%85%98)
+[코딩 컨벤션](https://github.com/dhtmdwo/protfolio2/wiki/%EC%BD%94%EB%93%9C-%EC%BB%A8%EB%B2%A4%EC%85%98)
 <br>
 <br>
 
 ## 🛠 시스템 아키텍처
 
-[시스템 아키텍처](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
+[시스템 아키텍처](https://github.com/dhtmdwo/protfolio2/wiki/%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
 <br>
 <br>
 
 ## 📡 소프트웨어 아키텍처
 
-[소프트웨어 아키텍처](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzzy/wiki/SW-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
+[소프트웨어 아키텍처](https://github.com/dhtmdwo/protfolio2/wiki/SW-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
 <br>
 
 
