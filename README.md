@@ -62,9 +62,11 @@ DB
 <br>
 <br>
 
-## 📃 프론트 프로젝트 github 주소
+## 📃 원본 프로젝트 프로젝트 github 주소
 
 [프론트 프로젝트 github 주소](https://github.com/beyond-sw-camp/be12-2nd-Matfia-Eatzzy)
+<br>
+[백엔드 프로젝트 github 주소](https://github.com/beyond-sw-camp/be12-3rd-Matfia-Eatzz)
 <br>
 
 
